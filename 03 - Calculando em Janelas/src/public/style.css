@@ -1,0 +1,27 @@
+* {
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: #fff;
+    margin: 0;
+}
+
+div.detalhe img {
+    height: 240px;
+    object-fit: cover;
+    width: 100%;
+}
+
+div.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 32px auto;
+    width: 420px;
+}
+
+span {
+    font-size: 20pt;
+    text-align: center;
+}

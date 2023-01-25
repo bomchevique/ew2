@@ -1,0 +1,10 @@
+{
+  "name": "proj03e",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "electron ./src/index.js"
+  },
+  "devDependencies": {
+    "electron": "^22.0.0"
+  }
+}

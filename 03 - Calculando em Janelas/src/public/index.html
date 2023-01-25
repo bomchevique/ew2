@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title> Calculando em Janelas </title>
+        
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body>
+        
+        <div class="detalhe">
+
+            <img src="./background.jpg" alt="background"/>
+
+        </div>
+
+        <div class="formulario">
+
+            <h1> Cálculo do IMC </h1>
+
+            <span name="calculado"> </span>
+
+            <input type="number" name="altura" placeholder="m">
+
+            <input type="number" name="peso" placeholder="Kg">
+            
+            <button onclick="Calcular()"> Calcular </button>
+
+        </div>
+
+        <div class="formulario">
+
+            <h1> Transformar Graus Celsius-Fahrenheit </h1>
+
+            <span name="transformado"> </span>
+
+            <input type="number" name="temperatura" placeholder="Temperatura">
+            
+            <button onclick="TransformarCelsius()"> Transformar para Celsius </button>
+            
+            <button onclick="TransformarFahrenheit()"> Transformar para Fahrenheit </button>
+
+        </div>
+
+        <div class="formulario">
+
+            <h1> Conversão Centímetro-Polegadas </h1>
+
+            <input type="number" name="centimetro" placeholder="cm">
+            
+            <input type="number" name="polegadas" placeholder="in">
+
+        </div>
+
+        <script>
+
+            const entradaAltura = document.querySelector("[name=altura]")
+
+            const entradaPeso = document.querySelector("[name=peso]")
+
+            const saidaCalculo = document.querySelector("[name=calculado]")
+
+            function Calcular() {
+
+                const valorAltura = parseFloat(entradaAltura.value)
+
+                const valorPeso = parseFloat(entradaPeso.value)
+
+                const resultado = valorPeso / (valorAltura * valorAltura)
+
+                if (resultado) {
+
+                    saidaCalculo.innerHTML = resultado 
+
+                }
+                
+            }
+
+        </script>
+        
+        <script>
+
+            const entradaCentimetro = document.querySelector("[name=centimetro]")
+
+            const entradaPolegada = document.querySelector("[name=polegadas]")
+
+            entradaCentimetro.addEventListener("input", function(evento) {
+
+                const valorCentimetro = parseFloat(evento.target.value)
+
+                entradaPolegada.value = valorCentimetro / 2.54
+
+            })
+
+            entradaPolegada.addEventListener("input", function(evento) {
+
+                const valorPolegada = parseFloat(evento.target.value)
+
+                entradaCentimetro.value = valorPolegada * 2.54
+
+            })
+
+        </script>
+        
+        <script>
+
+            const entradaTemperatura = document.querySelector("[name=temperatura]")
+
+            const saidaTemperatura = document.querySelector("[name=transformado]")
+
+            function TransformarFahrenheit() {
+
+                const valorTemperatura = parseFloat(entradaTemperatura.value)
+
+                if (valorTemperatura) {
+
+                    const resultado = ( valorTemperatura * ( 9 / 5 ) ) + 32
+
+                    saidaTemperatura.innerHTML = resultado + "  ºF"
+
+                }
+
+            }
+
+            function TransformarCelsius() {
+
+                const valorTemperatura = parseFloat(entradaTemperatura.value)
+
+                if (valorTemperatura) {
+
+                    const resultado = ( valorTemperatura - 32 ) * ( 5 / 9 )
+
+                    saidaTemperatura.innerHTML = resultado + "  ºC"
+
+                }
+                
+            }
+
+        </script>
+
+    </body>
+    
+</html>
