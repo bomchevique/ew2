@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Descent </title>
+
+        <link rel="stylesheet" href="./style.css">
+
+        <link rel="shortcut icon" href="./icon.png" type="image/png">
+
+    </head>
+
+    <body>
+        
+        <div class="menu">
+
+            <img src="./icon.png" alt="icone">
+
+        </div>
+
+        <div class="principal">
+
+            <div class="principal-barra">
+
+                <input type="text" placeholder="Escreva uma mensagem...">
+
+                <button onclick="electron.Minimizar()"> - </button>
+
+                <button onclick="electron.Maximizar()"> o </button>
+
+                <button onclick="electron.Fechar()"> x </button>
+
+            </div>
+
+            <div class="principal-conversa">
+
+                <div class="conversa">
+                    <span> Voluptatibus </span> Laudantium, expedita sit ipsam consequuntur dignissimos quis corrupti facere quas impedit quisquam voluptatibus.
+                </div>
+
+                <div class="conversa">
+                    <span> Totam </span> Totam quasi nisi quos.
+                </div>
+
+                <div class="conversa">
+                    <span> Commodi </span> Esse commodi!
+                </div>
+
+                <div class="conversa">
+                    <span> Consequatur </span> Tempora consequatur, dolorum non expedita cupiditate quas eaque totam!
+                </div>
+
+                <div class="conversa">
+                    <span> Fugiat </span> Sed ex velit fugiat magnam blanditiis quas maiores.
+                </div>
+
+                <div class="conversa">
+                    <span> Voluptatibus </span> Eos nihil voluptatibus laborum et aut minima nobis repellat ullam esse illum impedit deserunt?
+                </div>
+
+                <div class="conversa">
+                    <span> Quisquam </span> Quis ullam ab quia odio quisquam iste eaque, tempora eum officia quaerat similique.
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            const entradaConversa = document.querySelector("input")
+
+            const campoConversa = document.querySelector("div.principal-conversa")
+
+            entradaConversa.addEventListener("keypress", function(evento) {
+
+                if (evento.key === "Enter") {
+
+                    evento.preventDefault()
+
+                    electron.EnviarMensagem(evento.target.value)
+
+                    evento.target.value = null
+
+                }
+
+            })
+
+            setInterval(function() {
+
+                electron.ReceberMensagem()
+
+                    .then(function(resultados) {
+
+                        campoConversa.innerHTML = null
+
+                        for (let resultado of resultados) {
+
+                            const conversa = document.createElement("div")
+
+                            conversa.setAttribute("class", "conversa")
+
+                            const nome = document.createElement("span")
+
+                            nome.innerHTML = resultado.nome
+
+                            conversa.appendChild(nome)
+
+                            conversa.append(" ")
+
+                            conversa.append(resultado.mensagem)
+
+                            campoConversa.appendChild(conversa)
+
+                        }
+
+                    })
+
+            }, 1000)
+
+        </script>
+
+    </body>
+
+</html>
