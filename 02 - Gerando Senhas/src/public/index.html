@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title> Geradorando Senhas </title>
+        
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body>
+        
+        <h1> Geradorando Senhas </h1>
+
+        <div>
+
+            <input type="text" placeholder="Caixa de entrada para senha" name="senha">
+            
+            <button onclick="GerarSenha()"> 🔑 Gerar Senha </button>
+
+            <button onclick="VerificarSenha()"> 🔓 Verificar Senha </button>
+
+        </div>
+
+        <script>
+
+            function GerarSenha() {
+
+                const entradaSenha = document.querySelector("input")
+
+                const caracteres = "abcdABCD1234@#$&"
+
+                var senha = ""
+
+                for ( var contagem = 0; contagem < 10; contagem++ ) {
+
+                    const aleatorio = Math.floor(Math.random() * caracteres.length)
+
+                    senha += caracteres[aleatorio]
+
+                }
+
+                entradaSenha.value = senha
+
+            }
+
+            function VerificarSenha() {
+
+                const entradaSenha = document.querySelector("input")
+
+                const titulo = document.querySelector("h1")
+
+                const tamanho = entradaSenha.value.length
+
+                if (tamanho < 4)
+
+                    titulo.innerHTML = "Senha curta!"
+
+                else if (tamanho < 8)
+
+                    titulo.innerHTML = "Senha média!"
+                
+                else 
+                
+                    titulo.innerHTML = "Senha longa!"
+            }
+
+        </script>
+
+    </body>
+    
+</html>
