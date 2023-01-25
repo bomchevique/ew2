@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Reproduzindo Musicas </title>
+
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body>
+        
+        <div class="janela">
+
+            <div class="janela-faixas">
+
+                <label for="arquivo"> Abrir músicas </label>
+
+                <input accept="audio/mpeg, audio/wav" type="file" id="arquivo" multiple>
+
+            </div>
+
+            <div class="janela-reprodutor">
+
+                <audio controls></audio>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            const audio = document.querySelector("audio")
+
+            const entrada = document.querySelector("input")
+
+            const faixas = document.querySelector("div.janela-faixas")
+
+            const arquivos = new Array()
+
+            entrada.addEventListener("change", function() {
+
+                for ( var dado of entrada.files ) {
+
+                    const nome = dado.name
+
+                    const endereco = URL.createObjectURL(dado)
+
+                    arquivos.push({ nome, endereco })
+                }
+
+                Apresentar()
+
+            })
+
+            function Apresentar() {
+
+                faixas.innerHTML = ""
+
+                arquivos.forEach(function(arquivo, indice) {
+
+                    const musica = document.createElement("div")
+
+                    musica.setAttribute("class", "faixa")
+
+                    musica.setAttribute("onclick", `Tocar(${ indice })`)
+
+                    musica.innerHTML = arquivo.nome
+
+                    faixas.appendChild(musica)
+
+                }) 
+
+            }
+
+            function Tocar(indice) {
+
+                audio.setAttribute("src", arquivos[indice].endereco)
+
+            }
+
+        </script>
+
+    </body>
+    
+</html>
