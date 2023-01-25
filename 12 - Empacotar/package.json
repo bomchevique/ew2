@@ -1,0 +1,19 @@
+{
+  "name": "proj12e",
+  "version": "1.0.0",
+  "description": "projeto 12 no electron",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "electron ./src/index.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "pdrusr",
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "systeminformation": "^5.16.9"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Empacotar </title>
+
+        <link rel="shortcut icon" href="./icon.png" type="image/png">
+
+    </head>
+
+    <body>
+        
+        <h1></h1>
+
+        <div></div>
+
+        <div></div>
+
+        <script>
+
+            const marca = document.querySelector("h1")
+            
+            const divisao = document.querySelectorAll("div")
+
+            electron.ObterDados()
+
+                .then(function(resultado) {
+
+                    marca.innerHTML = resultado.manufacturer
+
+                    divisao[0].innerHTML = resultado.brand
+
+                    divisao[1].innerHTML = resultado.speed + " MHz"
+
+                })
+
+        </script>
+
+    </body>
+
+</html>
