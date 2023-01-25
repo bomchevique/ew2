@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title> Digitando os Email </title>
+
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body>
+        
+        <div class="janela">
+
+            <input type="email" name="destino" placeholder="contato@mail.com"/>
+
+            <input type="text" name="titulo" placeholder="Título"/>
+    
+            <textarea type="text" name="corpo" placeholder="Corpo..." rows="2"></textarea>
+    
+            <button onclick="ObterEmail()"> Pronto! </button>
+
+        </div>
+
+        <script>
+
+            const entradaDestino = document.querySelector("[name=destino]")
+
+            const entradaTitulo = document.querySelector("[name=titulo]")
+
+            const entradaCorpo = document.querySelector("[name=corpo]")
+
+
+            function ObterEmail() {
+
+                const destino = entradaDestino.value
+
+                const titulo = entradaTitulo.value
+
+                const corpo = entradaCorpo.value
+
+                electron.EnviarEmail({ destino, titulo, corpo })
+
+            }
+
+        </script>
+
+    </body>
+
+</html>

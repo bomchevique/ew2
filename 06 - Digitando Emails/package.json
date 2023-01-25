@@ -1,0 +1,13 @@
+{
+  "name": "proj06e",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "electron ./src/index.js"
+  },
+  "devDependencies": {
+    "electron": "^22.0.0"
+  },
+  "dependencies": {
+    "nodemailer": "^6.8.0"
+  }
+}
