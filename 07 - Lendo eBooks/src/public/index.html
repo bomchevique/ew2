@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Construindo leitor de PDFs </title>
+
+        <link rel="stylesheet" href="./style.css">
+
+        <link rel="shortcut icon" href="./icon.png" type="image/png">
+
+    </head>
+
+    <body>
+        
+        <div class="barra-janela">
+
+            <button onclick="window.electron.Fechar()"> 🔴 </button>
+
+            <button onclick="window.electron.Maximizar()"> 🟡 </button>
+
+            <button onclick="window.electron.Minimizar()"> 🟢 </button>
+
+        </div>
+        
+        <div class="leitura-janela">
+
+            <iframe src="" height="0px" width="100%"></iframe>
+
+        </div>
+
+        <div class="principal-janela">
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro1.pdf')"/>
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro2.pdf')"/>
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro3.pdf')"/>
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro4.pdf')"/>
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro5.pdf')"/>
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro6.pdf')"/>
+
+            <img 
+                src="./icon.png" 
+                onclick="AbrirLeitura('../../documents/Livro7.pdf')"/>
+
+        </div>
+        
+        <script>
+
+            function AbrirLeitura(endereco) {
+
+                const campo = document.querySelector("iframe")
+
+                campo.setAttribute("src", endereco)
+
+                campo.setAttribute("height", "500px")
+
+            }
+
+        </script>
+
+    </body>
+    
+</html>

@@ -1,0 +1,44 @@
+* {
+    font-family: "Verdana", sans-serif;
+}
+
+body {
+    background: #323639;
+    color: #fff;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+iframe {
+    border: none;
+}
+
+div.barra-janela {
+    align-items: center;
+    background: #323639;
+    display: flex;
+    height: 42px;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+div.barra-janela button {
+    background: #323639;
+    border: none;
+    height: 42px;
+    width: 42px;
+}
+
+div.principal-janela {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin: 32px;
+}
+
+div.principal-janela img {
+    height: 96px;
+    width: 96px;
+}
