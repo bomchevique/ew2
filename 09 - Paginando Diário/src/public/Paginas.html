@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Paginando Diário </title>
+
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body onload="MostrarPaginas()">
+        
+        <h1> Paginando Diário </h1>
+
+        <div class="paginas">
+
+            <div class="pagina">
+                <h2> 24/07/2023 </h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic error dolores, reiciendis quasi officia perferendis architecto ipsam illo porro laboriosam magni? Delectus libero impedit aspernatur recusandae. Ipsam accusantium sunt rerum.
+                </p>
+            </div>
+
+        </div>
+
+        <script>
+
+            function MostrarPaginas() {
+
+                const campo = document.querySelector("div.paginas")
+
+                const resultados = JSON.parse( localStorage.getItem("diario") || "[]" )
+
+                for (var resultado of resultados) {
+
+                    const pagina = document.createElement("div")
+
+                    pagina.setAttribute("class", "pagina")
+
+                    const tempo = document.createElement("h2")
+
+                    const conteudo = document.createElement("p")
+
+                    tempo.innerHTML = resultado.tempo
+
+                    conteudo.innerHTML = resultado.conteudo
+
+                    pagina.appendChild(tempo)
+
+                    pagina.appendChild(conteudo)
+
+                    campo.appendChild(pagina)
+
+                }
+
+            }
+
+        </script>
+
+    </body>
+
+</html>
