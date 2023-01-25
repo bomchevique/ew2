@@ -1,0 +1,24 @@
+* {
+    font-family: "Consolas", monospace;
+}
+
+body {
+    background-image: url("./background.gif");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+div {
+    margin: 64px auto;
+    text-align: center;
+}
+
+input, button {
+    background: #fff;
+    border: none;
+    color: #222;
+    height: 32px;
+    padding: 0 8px;
+    text-align: center;
+}
