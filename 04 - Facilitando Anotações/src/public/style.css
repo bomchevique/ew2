@@ -1,0 +1,31 @@
+* {
+    font-family: "Consolas", monospace;
+    font-size: 14pt;
+}
+
+body {
+    background-image: url("./background.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    width: 100vw;
+}
+
+div {
+    background: rgba(0, 0, 0, 0.2);
+    height: 24px;
+    
+    -webkit-app-region: drag;
+}
+
+textarea {
+    background: transparent;
+    border: none;
+    flex: 1;
+    padding: 8px;
+    outline: none;
+    resize: none;
+}

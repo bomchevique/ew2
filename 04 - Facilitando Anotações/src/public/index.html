@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Facilitando Anotações </title>
+
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+    <body>
+
+        <div></div>
+
+        <textarea placeholder="Digite aqui suas anotações"></textarea>
+
+        <script>
+
+            const texto = document.querySelector("textarea")
+
+            const body = document.querySelector("body")
+
+            texto.addEventListener("change", function(evento) {
+
+                localStorage.setItem("texto", evento.target.value)
+
+            })
+
+            window.onload =  function() {
+
+                texto.innerHTML = localStorage.getItem("texto")
+
+            }
+
+        </script>
+
+    </body>
+
+</html>
